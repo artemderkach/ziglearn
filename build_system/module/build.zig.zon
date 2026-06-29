@@ -1,0 +1,12 @@
+.{
+    .name = .module,
+    .version = "0.16.0",
+    .dependencies = .{
+        .protobuf = .{
+            .url = "git+https://github.com/Arwalk/zig-protobuf?ref=master#2b7103e1f71a02cb19bb464820ab6fa7376e5a17",
+            .hash = "protobuf-5.0.0-0e82apH3KQCe2L15XA_xb4QX_VuFH8tuRiQudst0DwjP",
+        },
+    },
+    .paths = .{""},
+    .fingerprint = 0xc242628db85b728,
+}
