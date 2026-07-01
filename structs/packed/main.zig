@@ -3,24 +3,27 @@ const std = @import("std");
 const P = packed struct {
     version: u4,
     kind: u4,
-    length: u16,
+    length: u8,
 };
 
 pub fn main() !void {
-    conversion_runtime();
+    conversion_comptime();
+    // conversion_runtime();
 }
 
 fn conversion_comptime() void {
-    const p: P = .{.version = 44};
+    const p: P = .{.version = 13, .kind = 7, .length = 31};
 
     const b = std.mem.asBytes(&p);
 
-    const p2: P = std.mem.bytesAsValue(P, b).*;
+    std.debug.print("bytes {any}\n", .{b});
 
-    std.debug.print("bytes {any}\n", .{p2});
+    // const p2: P = std.mem.bytesAsValue(P, b).*;
+    //
+    // std.debug.print("struct {any}\n", .{p2});
 }
 
-fn conversion_runtime() void {
+fn conversion_runtime() !void {
     const allocator = std.heap.page_allocator;
 
     _ = allocator; // not used, just to keep it explicit
